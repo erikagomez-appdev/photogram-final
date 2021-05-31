@@ -1,0 +1,104 @@
+<h1> <%= @user %> </h1>
+
+<dl>
+  <dt>Private</dt>
+  <dd>false</dd>
+
+  <dt>Followers</dt>
+  <dd>
+    37
+
+
+      <div>
+          <form action="/insert_follow_request" method="post">
+            <input type="hidden" name="query_recipient_id" value="92">
+
+            <button>
+              Follow
+            </button>
+          </form>
+    </div>
+
+  </dd>
+
+  <dt>Following</dt>
+  <dd>12</dd>
+
+</dl>
+
+<nav>
+  <ul>
+    <li>
+      <a href="/users/bob">Profile</a>
+    </li>
+    <li>
+      <a href="/users/bob/liked_photos">Liked photos</a>
+    </li>
+    <li>
+      <a href="/users/bob/feed">Feed</a>
+    </li>
+    <li>
+      <a href="/users/bob/discover">Discover</a>
+    </li>
+  </ul>
+</nav>
+
+<h2>Own photos (6)</h2>
+
+<table border="1">
+  <tr>
+    <th>
+      Image
+    </th>
+
+    <th>
+      Owner
+    </th>
+
+    <th>
+      Caption
+    </th>
+
+    <th>
+      Posted
+    </th>
+
+    <th>
+      Likes
+    </th>
+
+    <th></th>
+  </tr>
+
+  <tr>
+    <td>
+      <img src="https://robohash.org/atharumblanditiis">
+    </td>
+
+    <td>
+      bob
+    </td>
+
+    <td>
+      Fear cuts deeper than swords.
+    </td>
+
+    <td>
+      almost 4 years ago
+    </td>
+
+    <td>
+      6
+    </td>
+
+    <td>
+      <a href="/photos/747">
+        Show details
+      </a>
+    </td>
+  </tr>
+  
+</table>
+
+  </body>
+</html>
