@@ -22,23 +22,23 @@
   </dd>
 
   <dt>Following</dt>
-  <dd>12</dd>
+  <dd>[Add following count]</dd>
 
 </dl>
 
 <nav>
   <ul>
     <li>
-      <a href="/users/bob">Profile</a>
+      <a href="/users/<%= @user.username %>"> Profile</a>
     </li>
     <li>
-      <a href="/users/bob/liked_photos">Liked photos</a>
+      <a href="/users/<%= @user.username %>/liked_photos">Liked photos</a>
     </li>
     <li>
-      <a href="/users/bob/feed">Feed</a>
+      <a href="/users/<%= @user.username %>/feed">Feed</a>
     </li>
     <li>
-      <a href="/users/bob/discover">Discover</a>
+      <a href="/users/<%= @user.username %>/discover">Discover</a>
     </li>
   </ul>
 </nav>

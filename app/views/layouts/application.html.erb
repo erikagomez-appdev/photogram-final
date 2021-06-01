@@ -19,6 +19,18 @@
     <p> <%= alert %> </p> 
 
   <nav>
+      <ul>
+      <li>
+          <a href="/users">
+            All users
+          </a>
+        </li>
+        <li>
+          <a href="/photos">
+            All public photos
+          </a>
+        </li>
+        </ul>
     <% if @current_user == nil %>
       <ul>
           <li>
@@ -37,17 +49,13 @@
               Sign out
             </a>
           </li>
+          <li>
+            <a href="/users/<%= @user.username %>">
+              <%= @user.username %>
+            </a>
+          </li>
           <% end %>
-        <li>
-          <a href="/photos">
-            All public photos
-          </a>
-        </li>
-        <li>
-          <a href="/users">
-            All users
-          </a>
-        </li>
+        
       </ul>
     </nav>
     <%= yield %>
