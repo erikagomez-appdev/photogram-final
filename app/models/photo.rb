@@ -20,5 +20,19 @@ class Photo < ApplicationRecord
   def comments
     return Comment.where({ :photo_id => self.id })
   end
+
+  def likes
+    return Like.where({ :photo_id => self.id })
+  end
+
+  def fans
+    array_of_user_ids = self.likes.pluck(:fan_id)
+
+    return User.where({ :id => array_of_user_ids })
+  end
+
+  def fan_list
+    return self.fans.pluck(:username).to_sentence
+  end
   
 end

@@ -52,7 +52,7 @@
         Fans
       </dt>
       <dd>
-        [List of people who liked photo]
+        <%= @the_photo.fan_list %>
       </dd>
 
       <dt>Add a fan</dt>
@@ -79,7 +79,7 @@
   <% @the_photo.comments.each do |photo_comment| %>
     <tr>
       <td>
-        <%= photo_comment.id %>
+        <%= photo_comment.commenter.username %>
       </td>
 
       <td>
