@@ -6,7 +6,7 @@
 
   <dt>Followers</dt>
   <dd>
-    [Add follower count]
+    <%= @user.followers.count %>
 
 
       <div>
@@ -22,7 +22,7 @@
   </dd>
 
   <dt>Following</dt>
-  <dd>[Add following count]</dd>
+  <dd><%= @user.following.count %></dd>
 
 </dl>
 
@@ -43,7 +43,7 @@
   </ul>
 </nav>
 
-<h2>Own photos (6)</h2>
+<h2>Own photos (<%= @user.own_photos.count %>)</h2>
 
 <table border="1">
   <tr>
@@ -77,7 +77,7 @@
     </td>
 
     <td>
-      photo.owner 
+      <%= photo.poster.username %> 
     </td>
 
     <td>
