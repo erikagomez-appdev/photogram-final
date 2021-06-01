@@ -1,43 +1,37 @@
 <div>
   <div>
     <h1>
-      Photo #<%= @the_photo.id %> details
+      Photo Details
     </h1>
 
-    <div>
-      <div>
-        <a href="/photos">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_photo/<%= @the_photo.id %>">
-          Delete photo
-        </a>
-      </div>
+    
     </div>
 
     <dl>
+      <dt>Image</dt>
+      <dd>
+       <img src="<%= @the_photo.image %>">
+      </dd>
+      
       <dt>
         Caption
       </dt>
       <dd>
         <%= @the_photo.caption %>
       </dd>
-
+      
       <dt>
-        Comments count
+        Owner
       </dt>
       <dd>
-        <%= @the_photo.comments_count %>
+        <%= @the_photo.poster.username %>
       </dd>
 
       <dt>
-        Image
+        Posted
       </dt>
       <dd>
-        <%= @the_photo.image %>
+        <%= time_ago_in_words(@the_photo.created_at) %> ago
       </dd>
 
       <dt>
@@ -48,84 +42,153 @@
       </dd>
 
       <dt>
-        Owner
+        Comments count
       </dt>
       <dd>
-        <%= @the_photo.owner_id %>
+        <%= @the_photo.comments_count %>
       </dd>
 
       <dt>
-        Created at
+        Fans
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_photo.created_at) %> ago
+        [List of people who liked photo]
       </dd>
 
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_photo.updated_at) %> ago
-      </dd>
+      <dt>Add a fan</dt>
+    <dd>
+      <form action="/insert_like" method="post">
+        <input type="hidden" value="893" name="query_photo_id">
+        <button>Like</button>
+      </form>
+    </dd>
+
     </dl>
   </div>
 </div>
 
-<hr>
+<h2>Comments</h2>
 
+<table>
+  <tr>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th>Posted</th>
+  </tr>
 
-<div>
-  <div>
-    <h2>
-      Edit photo
-    </h2>
+    <tr>
+      <td>
+        drew
+      </td>
 
-    <form action="/modify_photo/<%= @the_photo.id %>"  method="post" >
-      <div>
-        <label for="caption_box">
-          Caption
-        </label>
+      <td>
+        It&#39;s not what happens to you, but how you react to it that matters.
+      </td>
 
-        <textarea id="caption_box" name="query_caption"><%= @the_photo.caption %></textarea>
-      </div>
+      <td>
+        over 3 years ago
+      </td>
+    </tr>  
+    <tr>
+      <td>
+        diego
+      </td>
 
-      <div>
-        <label for="comments_count_box">
-          Comments count
-        </label>
+      <td>
+        Dignity does not consist in possessing honors, but in deserving them.
+      </td>
 
-        <input type="text" id="comments_count_box" name="query_comments_count" value="<%= @the_photo.comments_count %>">
-      </div>
+      <td>
+        about 3 years ago
+      </td>
+    </tr>  
+    <tr>
+      <td>
+        debbi
+      </td>
 
-      <div>
-        <label for="image_box">
-          Image
-        </label>
+      <td>
+        Beware the barrenness of a busy life.
+      </td>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_photo.image %>">
-      </div>
+      <td>
+        about 3 years ago
+      </td>
+    </tr>  
+    <tr>
+      <td>
+        thad
+      </td>
 
-      <div>
-        <label for="likes_count_box">
-          Likes count
-        </label>
+      <td>
+        There was never a genius without a tincture of madness.
+      </td>
 
-        <input type="text" id="likes_count_box" name="query_likes_count" value="<%= @the_photo.likes_count %>">
-      </div>
+      <td>
+        almost 3 years ago
+      </td>
+    </tr>  
+    <tr>
+      <td>
+        ellen
+      </td>
 
-      <div>
-        <label for="owner_id_box">
-          Owner
-        </label>
+      <td>
+        It is impossible to begin to learn that which one thinks one already knows.
+      </td>
 
-        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_photo.owner_id %>">
-      </div>
+      <td>
+        almost 3 years ago
+      </td>
+    </tr>  
+    <tr>
+      <td>
+        bob
+      </td>
 
-      <button>
-        Update photo
-      </button>
-    </form>
-  </div>
-</div>
+      <td>
+        The mind is not a vessel to be filled but a fire to be kindled.
+      </td>
 
-<hr>
+      <td>
+        over 2 years ago
+      </td>
+    </tr>  
+    <tr>
+      <td>
+        galen
+      </td>
+
+      <td>
+        Beware the barrenness of a busy life.
+      </td>
+
+      <td>
+        over 2 years ago
+      </td>
+    </tr>  
+    <tr>
+      <td>
+        maida
+      </td>
+
+      <td>
+        There was never a genius without a tincture of madness.
+      </td>
+
+      <td>
+        about 2 years ago
+      </td>
+    </tr>  
+</table>
+
+<h3>Add a new comment</h3>
+
+<form action="/insert_comment" method="post">
+  <input type="hidden" value="893" name="query_photo_id">
+  
+  <label for="browser_comment">Comment</label>
+  <textarea id="browser_comment" name="query_body" placeholder="Enter a comment..."></textarea>
+
+  <button>Add comment</button>
+</form>
