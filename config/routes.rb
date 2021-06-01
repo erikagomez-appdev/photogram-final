@@ -108,8 +108,6 @@ Rails.application.routes.draw do
   #USERS
   get("/users", { :controller => "user_authentication", :action => "index" })
 
-
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #------------------------------
   get("/users/:the_username", {:controller => "users", :action => "show"})
