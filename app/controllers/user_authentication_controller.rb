@@ -41,8 +41,6 @@ class UserAuthenticationController < ApplicationController
     @user.email = params.fetch("query_email")
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
-    @user.comments_count = params.fetch("query_comments_count")
-    @user.likes_count = params.fetch("query_likes_count")
     @user.private = params.fetch("query_private", false)
     @user.username = params.fetch("query_username")
 
