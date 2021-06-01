@@ -76,110 +76,22 @@
     <th>Posted</th>
   </tr>
 
+  <% @the_photo.comments.each do |photo_comment| %>
     <tr>
       <td>
-        drew
+        <%= photo_comment.id %>
       </td>
 
       <td>
-        It&#39;s not what happens to you, but how you react to it that matters.
+        <%= photo_comment.body %>
       </td>
 
       <td>
-        over 3 years ago
+        <%= time_ago_in_words(photo_comment.created_at) + " ago" %>
       </td>
+    
     </tr>  
-    <tr>
-      <td>
-        diego
-      </td>
-
-      <td>
-        Dignity does not consist in possessing honors, but in deserving them.
-      </td>
-
-      <td>
-        about 3 years ago
-      </td>
-    </tr>  
-    <tr>
-      <td>
-        debbi
-      </td>
-
-      <td>
-        Beware the barrenness of a busy life.
-      </td>
-
-      <td>
-        about 3 years ago
-      </td>
-    </tr>  
-    <tr>
-      <td>
-        thad
-      </td>
-
-      <td>
-        There was never a genius without a tincture of madness.
-      </td>
-
-      <td>
-        almost 3 years ago
-      </td>
-    </tr>  
-    <tr>
-      <td>
-        ellen
-      </td>
-
-      <td>
-        It is impossible to begin to learn that which one thinks one already knows.
-      </td>
-
-      <td>
-        almost 3 years ago
-      </td>
-    </tr>  
-    <tr>
-      <td>
-        bob
-      </td>
-
-      <td>
-        The mind is not a vessel to be filled but a fire to be kindled.
-      </td>
-
-      <td>
-        over 2 years ago
-      </td>
-    </tr>  
-    <tr>
-      <td>
-        galen
-      </td>
-
-      <td>
-        Beware the barrenness of a busy life.
-      </td>
-
-      <td>
-        over 2 years ago
-      </td>
-    </tr>  
-    <tr>
-      <td>
-        maida
-      </td>
-
-      <td>
-        There was never a genius without a tincture of madness.
-      </td>
-
-      <td>
-        about 2 years ago
-      </td>
-    </tr>  
+  <% end %>
 </table>
 
 <h3>Add a new comment</h3>
