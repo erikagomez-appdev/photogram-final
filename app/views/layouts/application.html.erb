@@ -45,17 +45,16 @@
           </li>
           <% else %>
           <li>
+            <a href="/users/<%= @current_user.username %>">
+              <%= @current_user.username %>
+            </a>
+          </li>
+          <li>
             <a href="/user_sign_out">
               Sign out
             </a>
           </li>
-          <li>
-            <a href="/users/<%= @user.username %>">
-              <%= @user.username %>
-            </a>
-          </li>
           <% end %>
-        
       </ul>
     </nav>
     <%= yield %>
