@@ -22,6 +22,12 @@ class FollowRequestsController < ApplicationController
     the_follow_request.recipient_id = params.fetch("query_recipient_id")
     the_follow_request.sender_id = @current_user.id
 
+    #if User.where({ :id => recipient_id }).params.fetch("recipient_id") == private
+      
+    #status == "pending"
+
+    #else status == "accepted"
+
     if the_follow_request.valid?
       the_follow_request.save
       redirect_to("/users", { :notice => "Follow request created successfully." })
