@@ -28,8 +28,8 @@
   </ul>
 </nav>
 
-<h2>Feed (91)</h2>
-
+<h2>Feed (<%= @user.feed.count %>)</h2>
+ 
 <table border="1">
   <tr>
     <th>
@@ -54,30 +54,32 @@
 
     <th></th>
   </tr>
-
+  <% @user.feed.each do |photo_posted_by_following| %>
   <tr>
     <td>
-      <img src="https://robohash.org/necessitatibusquieos">
+      <img src="<%= photo_posted_by_following.image %>">
     </td>
 
     <td>
-      sharilyn
+      <%= photo_posted_by_following.poster.username %>
     </td>
 
     <td>
-      All dwarfs are bastards in their father&#39;s eyes
+      <%= photo_posted_by_following.caption %>
     </td>
 
     <td>
-      over 3 years ago
+     <%= time_ago_in_words(photo_posted_by_following.created_at) + " ago" %>
     </td>
 
     <td>
-      2
+      <%= photo_posted_by_following.likes_count %>
     </td>
 
     <td>
-      <a href="/photos/644">
+      <a href="/photos/<%= photo_posted_by_following.id %>">
         Show details
       </a>
     </td>
+    <% end %>
+    </table>

@@ -49,4 +49,10 @@ class User < ApplicationRecord
     return User.where({ :id => array_of_leader_ids })
   end
 
+  def feed
+    array_of_leader_ids = self.accepted_sent_follow_requests.pluck(:recipient_id)
+
+    return Photo.where({ :owner_id => array_of_leader_ids })
+  end
+
 end
