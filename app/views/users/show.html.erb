@@ -12,7 +12,6 @@
       <h4> Pending follow requests </h4>  
        <%= @user.received_follow_requests.pluck(:username).to_sentence %>
 
-      
   <% else %> 
     <div>
           <form action="/insert_follow_request" method="post">
