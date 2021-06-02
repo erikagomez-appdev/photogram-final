@@ -54,15 +54,16 @@
       <dd>
         <%= @the_photo.fan_list %>
       </dd>
-
-  <% if @the_photo.poster.username == session.fetch(:user_id) %>
-        <dt>Add a fan</dt>
+    <dt>Add a fan</dt>
       <dd>
         <form action="/insert_like" method="post">
           <input type="hidden" value="<%= @the_photo.id %>" name="query_photo_id">
           <button>Like</button>
         </form>
       </dd>
+      
+  <% if @the_photo.poster.id == session.fetch(:user_id) %>
+        
       <dt>Edit photo</dt>
     <dd>
       <form action="/modify_photo/951" method="post" enctype="multipart/form-data">
