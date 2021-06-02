@@ -6,9 +6,9 @@
   </div>
 </div>
 <% if session.fetch(:user_id) != nil %>
-<form action="/insert_photo" method="post" enctype="multipart/form-data">
+<form action="/insert_photo" method="post" class="form-horizontal" enctype="multipart/form-data">
   <label for="browser_input">Image</label>
-  <input id="browser_input" type="file" name="query_image" placeholder="Enter a URL for the image...">
+  <input id="browser_input" type="file" id="image" name="query_image" class="form-control" placeholder="Enter a URL for the image...">
 
   <label for="browser_caption">Caption</label>
   <textarea id="browser_caption" name="query_caption" placeholder="Enter a caption for the photo..."></textarea>
