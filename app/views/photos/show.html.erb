@@ -55,14 +55,34 @@
         <%= @the_photo.fan_list %>
       </dd>
 
-      <dt>Add a fan</dt>
+  <% if @the_photo.poster.username == session.fetch(:user_id) %>
+        <dt>Add a fan</dt>
+      <dd>
+        <form action="/insert_like" method="post">
+          <input type="hidden" value="<%= @the_photo.id %>" name="query_photo_id">
+          <button>Like</button>
+        </form>
+      </dd>
+      <dt>Edit photo</dt>
     <dd>
-      <form action="/insert_like" method="post">
-        <input type="hidden" value="<%= @the_photo.id %>" name="query_photo_id">
-        <button>Like</button>
+      <form action="/modify_photo/951" method="post" enctype="multipart/form-data">
+        <label for="browser_image">Image URL</label>
+        <input id="browser_image" type="file" name="query_image" placeholder="Enter a URL for the image..." value="http://res-1.cloudinary.com/dt1gn6erd/image/upload/v1622592408/incqb8jhobs043kvogpt.jpg">
+      
+        <label for="browser_caption">Caption</label>
+        <textarea id="browser_caption" name="query_caption" placeholder="Enter a caption for the photo...">me!</textarea>
+      
+        <button>Update photo</button>
       </form>
     </dd>
 
+  <dt>Delete photo</dt>
+  <dd>
+    <a href="/delete_photo/951">
+      Delete this photo
+    </a>
+  </dd>
+  <% end %>
     </dl>
   </div>
 </div>
