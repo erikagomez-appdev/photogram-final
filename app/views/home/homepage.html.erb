@@ -32,7 +32,12 @@
           <% end %>
 
         </td>
-        
+        <% if %>
+        <% session.fetch(:user_id) == nil %>
+
+        <h4> </h4>
+
+        <% else %>
         <td>
           <form action="/insert_follow_request" method="post">
             <input type="hidden" name="query_recipient_id" value="91">
@@ -42,7 +47,8 @@
             </button>
           </form>
       </td>
-
+        <% end %>
+        
         <td>
           <a href="/users/<%= a_user.username %>">
             Show details
