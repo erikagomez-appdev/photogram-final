@@ -29,7 +29,7 @@
   </dd>
 
   <dt>Following</dt>
-  <dd><%= @user.following.count %></dd>
+  <dd> <%= @user.following.count %> </dd>
 
   <% if @user.id == session.fetch(:user_id) %>
   <dt>Edit user</dt>

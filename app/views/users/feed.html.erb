@@ -1,0 +1,83 @@
+<h1> <%= @user.username %> </h1>
+
+<dl>
+  <dt>Private</dt>
+  <dd> <%= @user.private %> </dd>
+
+  <dt>Followers</dt>
+  <dd> <%= @user.followers.count %> </dd>
+
+  <dt>Following</dt>
+  <dd> <%= @user.following.count %> </dd>
+</dl>
+
+<nav>
+  <ul>
+    <li>
+      <a href="/users/<%= @user.username %>">Profile</a>
+    </li>
+    <li>
+      <a href="/users/<%= @user.username %>/liked_photos">Liked photos</a>
+    </li>
+    <li>
+      <a href="/users/<%= @user.username %>/feed">Feed</a>
+    </li>
+    <li>
+      <a href="/users/<%= @user.username %>/discover">Discover</a>
+    </li>
+  </ul>
+</nav>
+
+<h2>Feed (91)</h2>
+
+<table border="1">
+  <tr>
+    <th>
+      Image
+    </th>
+
+    <th>
+      Owner
+    </th>
+
+    <th>
+      Caption
+    </th>
+
+    <th>
+      Posted
+    </th>
+
+    <th>
+      Likes
+    </th>
+
+    <th></th>
+  </tr>
+
+  <tr>
+    <td>
+      <img src="https://robohash.org/necessitatibusquieos">
+    </td>
+
+    <td>
+      sharilyn
+    </td>
+
+    <td>
+      All dwarfs are bastards in their father&#39;s eyes
+    </td>
+
+    <td>
+      over 3 years ago
+    </td>
+
+    <td>
+      2
+    </td>
+
+    <td>
+      <a href="/photos/644">
+        Show details
+      </a>
+    </td>
