@@ -13,6 +13,8 @@
 #
 class Photo < ApplicationRecord
 
+  mount_uploader :image, ImageUploader
+  
   def poster
     return User.where({ :id => self.owner_id }).at(0)
   end
@@ -35,8 +37,8 @@ class Photo < ApplicationRecord
     return self.fans.pluck(:username).to_sentence
   end
   
-  class Photo < ActiveRecord::Base
-  mount_uploader :image, ImageUploader
-end
+  
+  
+
   
 end
