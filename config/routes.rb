@@ -112,6 +112,8 @@ Rails.application.routes.draw do
 
   get("/users/:the_username/feed", {:controller => "users", :action => "feed"})
 
+  post("/modify_user", { :controller => "user_authentication", :action => "update" })
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #------------------------------
   
